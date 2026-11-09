@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1457df">
+<title>APEX STORE</title>
+<style>
+:root{--blue:#155eef;--blue2:#08a8ed;--navy:#101d43;--ink:#17233f;--muted:#71809c;--line:#e4eaf5;--bg:#f4f7fc;--white:#fff;--green:#0ca678;--red:#e5484d;--shadow:0 12px 35px #183c7912}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Bengali",Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}.hidden{display:none!important}.wrap{max-width:1120px;margin:auto;padding:18px}.top{position:sticky;top:0;z-index:10;background:#ffffffed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.topin{max-width:1120px;margin:auto;padding:12px 18px;display:flex;align-items:center;gap:16px}.brand{display:flex;align-items:center;gap:9px;font-weight:950;font-style:italic;color:#102d70;font-size:21px;letter-spacing:-1px}.mark{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#08c4ed,#155eef 65%,#101d43);color:white;display:grid;place-items:center;font-size:23px;font-weight:1000;box-shadow:0 5px 14px #155eef44}.grow{flex:1}.pill{background:#edf3ff;color:#155eef;border-radius:30px;padding:10px 15px;font-weight:800}.avatar{width:38px;height:38px;border-radius:50%;background:#e8efff;color:#155eef;display:grid;place-items:center;font-weight:900}.btn{background:var(--blue);color:#fff;padding:12px 18px;border-radius:12px;font-weight:800;box-shadow:0 7px 15px #155eef2b}.btn.secondary{background:#edf3ff;color:var(--blue);box-shadow:none}.btn.outline{background:white;color:var(--blue);border:1px solid #b9ccf9;box-shadow:none}.btn.danger{background:#fff0f0;color:var(--red);box-shadow:none}.btn.success{background:#e7fbf4;color:#07865e;box-shadow:none}.btn:disabled{opacity:.45;cursor:not-allowed}.card{background:white;border:1px solid var(--line);border-radius:20px;padding:19px;box-shadow:var(--shadow)}.muted{color:var(--muted)}.small{font-size:13px}.section{margin:24px 0}.sectionhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}.sectionhead h2{font-size:21px;margin:0}.hero{border-radius:24px;overflow:hidden;background:linear-gradient(115deg,#09235d,#155eef 60%,#08a8ed);color:white;padding:30px;display:flex;align-items:center;min-height:205px;gap:20px}.hero h1{font-size:clamp(27px,5vw,43px);line-height:1.08;margin:0 0 10px}.hero p{margin:0 0 18px;color:#dceaff}.heroicon{font-size:90px;filter:drop-shadow(0 8px 10px #00154a77)}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}.product{padding:12px;display:flex;flex-direction:column;gap:8px}.prodimg{height:135px;border-radius:14px;background:linear-gradient(135deg,#eaf2ff,#d9e8ff);display:grid;place-items:center;overflow:hidden;color:#155eef;font-size:48px}.prodimg img{width:100%;height:100%;object-fit:cover}.price{font-size:19px;font-weight:950;color:var(--blue)}.stock{font-size:12px;color:var(--green);font-weight:800}.category-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.category-tile{border:1px solid var(--line);background:#fff;border-radius:16px;padding:15px 8px;text-align:center;font-weight:850;color:#263b66;box-shadow:var(--shadow)}.category-tile span{display:block;font-size:28px;margin-bottom:6px}.category-tile img{width:100%;height:92px;object-fit:cover;border-radius:11px;margin-bottom:8px;background:#edf3ff}.cat-preview{width:76px;height:58px;object-fit:cover;border-radius:9px;vertical-align:middle;background:#edf3ff}.category-tile.active{border:2px solid var(--blue);background:#f0f5ff;color:var(--blue)}.product h3{font-size:15px;margin:0}.product p{font-size:12px;color:var(--muted);margin:0;min-height:30px}.nav{position:fixed;bottom:0;left:0;right:0;background:#ffffffed;backdrop-filter:blur(12px);border-top:1px solid var(--line);z-index:20;padding:7px max(8px,calc((100vw - 700px)/2)) calc(7px + env(safe-area-inset-bottom));display:flex;justify-content:space-around}.nav button{background:transparent;color:#8290aa;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;font-weight:800;padding:4px 9px}.nav button b{font-size:22px}.nav button.active{color:var(--blue)}main{padding-bottom:95px}.field{display:flex;flex-direction:column;gap:6px;margin:12px 0}.field label{font-size:13px;font-weight:800;color:#52627f}.field input,.field select,.field textarea{width:100%;padding:13px 14px;border:1px solid #dce4f2;border-radius:12px;background:#fbfcff;outline:none;color:var(--ink)}.field input:focus,.field select:focus,.field textarea:focus{border-color:#6e9cff;box-shadow:0 0 0 3px #155eef12}.field textarea{min-height:90px;resize:vertical}.row{display:flex;gap:12px;align-items:center}.row>*{flex:1}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat strong{font-size:24px;display:block}.tag{display:inline-block;border-radius:20px;padding:5px 10px;background:#edf3ff;color:#155eef;font-size:12px;font-weight:800}.status{font-size:12px;font-weight:900}.status.pending{color:#bd7900}.status.approved,.status.confirmed{color:#07865e}.status.rejected{color:#d33}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:560px}th,td{text-align:left;padding:11px;border-bottom:1px solid var(--line);font-size:13px}th{color:#667692;background:#f8faff}.loginbg{min-height:100vh;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at 15% 15%,#d9f5ff,transparent 35%),radial-gradient(circle at 90% 90%,#dce7ff,transparent 35%),#f4f7fc}.loginbox{width:min(440px,100%);text-align:center}.logoanim{margin:0 auto 20px;width:110px;height:110px;border-radius:30px;background:linear-gradient(135deg,#08c4ed,#155eef,#101d43);display:grid;place-items:center;color:white;font-size:52px;font-weight:1000;box-shadow:0 0 0 0 #155eef55;animation:pulse 1.8s infinite}.logoanim span{animation:float 1.5s ease-in-out infinite alternate}@keyframes pulse{to{box-shadow:0 0 0 22px #155eef00}}@keyframes float{to{transform:translateY(-6px) scale(1.04)}}.loginbox h1{margin:0 0 5px}.loginbox .card{text-align:left;margin-top:20px}.center{text-align:center}.empty{text-align:center;padding:28px;color:var(--muted)}.adminlayout{display:grid;grid-template-columns:205px 1fr;gap:16px}.adminmenu{display:flex;flex-direction:column;gap:7px}.adminmenu button{text-align:left;background:#f5f8ff;color:#465875;padding:12px;border-radius:10px;font-weight:800}.adminmenu button.active{background:#155eef;color:white}.notice{padding:12px 14px;border-radius:12px;background:#fff7e5;color:#805700;font-size:13px;line-height:1.5}.footer{text-align:center;color:#8a97ad;font-size:12px;padding:20px 0}.actions{display:flex;gap:7px;flex-wrap:wrap}.actions .btn{padding:8px 11px;font-size:12px}
+@media(max-width:760px){.category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.wrap{padding:13px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.prodimg{height:115px}.hero{padding:22px;min-height:175px}.heroicon{font-size:58px}.stats{grid-template-columns:1fr 1fr}.adminlayout{grid-template-columns:1fr}.adminmenu{display:grid;grid-template-columns:repeat(2,1fr)}.topin{gap:9px}.brand{font-size:18px}.mark{width:37px;height:37px}.hide-mobile{display:none}.card{padding:15px}}
+@media(min-width:761px){.nav{position:static;max-width:700px;margin:0 auto 20px;border:1px solid var(--line);border-radius:18px}.nav button{font-size:12px}.wrap{padding-top:24px}}
+</style>
+</head>
+<body>
+<div id="loginScreen" class="loginbg">
+ <div class="loginbox">
+  <div class="logoanim"><span>AS</span></div>
+  <h1>APEX STORE</h1><div class="muted">Premium Gaming & Digital Shop</div>
+  <div class="card">
+   <button class="btn outline" style="width:100%;margin-bottom:12px" onclick="googleInfo()">🌐 Continue with Google</button>
+   <div class="center muted small">— অথবা Email দিয়ে Login —</div>
+   <div id="registerFields" class="hidden"><div class="field"><label>নাম</label><input id="authName" placeholder="আপনার নাম"></div><div class="field"><label>মোবাইল নম্বর</label><input id="authMobile" type="tel" placeholder="01XXXXXXXXX"></div></div>
+   <div class="field"><label>Email</label><input id="authEmail" type="email" placeholder="আপনার ইমেইল"></div>
+   <div class="field"><label>Password</label><input id="authPass" type="password" placeholder="পাসওয়ার্ড"></div>
+   <button class="btn" id="loginBtn" style="width:100%" onclick="login()">Login</button>
+   <button class="btn secondary" id="registerBtn" style="width:100%;margin-top:9px" onclick="toggleRegister()">Create Account / Register</button>
+  </div>
+  <p class="small muted">© APEX STORE</p>
+ </div>
+</div>
+<div id="app" class="hidden">
+ <header class="top"><div class="topin">
+  <div class="brand"><div class="mark">AS</div><span>APEX STORE</span></div>
+  <div class="grow"></div><button class="pill" onclick="showPage('wallet')">▣ ৳<span id="topBalance">0</span></button>
+  <div class="avatar" id="topAvatar">U</div>
+  <button class="btn secondary" onclick="logout()">Logout</button>
+ </div></header>
+ <main class="wrap">
+  <section id="homePage">
+   <div class="hero"><div><h1>WELCOME TO<br>APEX STORE</h1><p>Premium Gaming & Digital Products</p><button class="btn" onclick="document.getElementById('productsArea').scrollIntoView({behavior:'smooth'})">Shop Now →</button></div><div class="heroicon">💎</div></div>
+   <div class="section stats">
+    <div class="card"><span class="muted small">Wallet Balance</span><strong>৳<span id="homeBalance">0</span></strong></div>
+    <div class="card"><span class="muted small">My Orders</span><strong id="homeOrders">0</strong></div>
+    <div class="card"><span class="muted small">Support</span><strong style="font-size:16px">01642268349</strong></div>
+   </div>
+   <div class="section"><div class="sectionhead"><h2>Quick Support</h2></div><div class="row"><a class="btn success center" href="https://wa.me/8801642268349" target="_blank">WhatsApp</a><a class="btn outline center" href="https://t.me/+8801642268349" target="_blank">Telegram</a></div></div>
+   <div class="section"><div class="sectionhead"><h2>Shop by Category</h2><button class="btn secondary" onclick="filterCategory('All')">View All</button></div><div class="category-grid" id="categoryGrid"></div></div>
+   <div class="section" id="productsArea"><div class="sectionhead"><h2 id="productsHeading">All Products</h2><input id="searchProduct" placeholder="Search..." style="max-width:150px;padding:9px;border:1px solid var(--line);border-radius:10px" oninput="renderProducts()"></div><div id="productGrid" class="grid"></div></div>
+  </section>
+  <section id="cartPage" class="hidden"><div class="sectionhead"><h2>My Cart</h2></div><div id="cartContent" class="card"></div></section>
+  <section id="ordersPage" class="hidden"><div class="sectionhead"><h2>My Orders</h2></div><div id="myOrders" class="grid" style="grid-template-columns:1fr"></div></section>
+  <section id="walletPage" class="hidden">
+   <div class="card"><h2>Wallet & Add Money</h2><div class="price" style="font-size:30px">৳<span id="walletBalance">0</span></div><p class="muted small">bKash Personal: <b>01642268349</b></p>
+    <div class="notice">প্রথমে bKash-এ 01642268349 নম্বরে Send Money করুন। তারপর Amount ও Transaction ID জমা দিন। Admin যাচাই করে Approve করলে Wallet-এ টাকা যোগ হবে।</div>
+    <div class="field"><label>Amount (৳)</label><input id="depositAmount" type="number" min="10" placeholder="কমপক্ষে ১০ টাকা"></div>
+    <div class="field"><label>Transaction ID</label><input id="depositTrx" placeholder="bKash Transaction ID"></div>
+    <button class="btn" onclick="submitDeposit()">Submit Add Money Request</button>
+   </div><div class="section"><h3>My Add Money Requests</h3><div id="myDeposits" class="card"></div></div>
+  </section>
+  <section id="profilePage" class="hidden"><div class="card center"><div class="avatar" style="width:75px;height:75px;margin:auto;font-size:30px" id="profileAvatar">U</div><h2 id="profileName">User</h2><p id="profileEmail" class="muted"></p><div class="price">৳<span id="profileBalance">0</span></div><p class="muted small">Current Wallet Balance</p><button class="btn" onclick="showPage('wallet')">Add Money</button></div><div class="section card"><h3>Support Center</h3><p>WhatsApp / Telegram: <b>01642268349</b></p><a class="btn success" href="https://wa.me/8801642268349" target="_blank">Contact Support</a></div><div id="adminEntry" class="section card hidden"><b>Admin Access</b><p class="muted small">Admin account detected.</p><button class="btn" onclick="openAdmin()">Open Admin Dashboard</button></div></section>
+  <section id="adminPage" class="hidden">
+   <div class="sectionhead"><h2>Admin Dashboard</h2><span class="tag">ADMIN</span></div>
+   <div class="notice">ডেমো সংস্করণ: নিচের ডেটা এই ব্রাউজারের Local Storage-এ থাকে। বাস্তব ব্যবহারকারীর জন্য Firebase Authentication, Firestore Rules এবং server-side payment/order validation যুক্ত করতে হবে।</div>
+   <div class="stats section"><div class="card"><span class="muted small">Products</span><strong id="aProducts">0</strong></div><div class="card"><span class="muted small">Users</span><strong id="aUsers">0</strong></div><div class="card"><span class="muted small">Orders</span><strong id="aOrders">0</strong></div></div>
+   <div class="adminlayout">
+    <div class="adminmenu">
+     <button class="active" onclick="adminTab('dash',this)">▦ Dashboard</button><button onclick="adminTab('add',this)">＋ Add Product</button><button onclick="adminTab('manage',this)">▤ Manage Products</button><button onclick="adminTab('categories',this)">🖼 Category Images</button><button onclick="adminTab('users',this)">♙ Users & Wallet</button><button onclick="adminTab('payments',this)">৳ Pending Payments</button><button onclick="adminTab('orders',this)">▣ Orders</button>
+    </div>
+    <div class="card">
+     <div id="admin-dash"><h3>Overview</h3><p class="muted">নতুন পণ্য যোগ, পেমেন্ট যাচাই এবং অর্ডার ম্যানেজ করুন।</p><div id="adminRecent"></div></div>
+     <div id="admin-add" class="hidden"><h3 id="productFormTitle">Add Product</h3><input id="editProductId" type="hidden"><div class="field"><label>Product Category</label><select id="pCategory"><option>eFootball Store</option><option>Gaming Product</option><option>Gemini Pro</option><option>TikTok Coin</option><option>Normal Product</option></select></div><div class="field"><label>Product Name</label><input id="pName" placeholder="Product name"></div><div class="row"><div class="field"><label>Price (৳)</label><input id="pPrice" type="number" min="0"></div><div class="field"><label>Stock</label><input id="pStock" type="number" min="0"></div></div><div class="field"><label>Details</label><textarea id="pDetails" placeholder="Product details"></textarea></div><div class="field"><label>Product Image URL (যেকোনো সরাসরি ছবির লিংক)</label><input id="pImageUrl" type="url" placeholder="https://example.com/product.jpg"></div><div class="field"><label>অথবা ছবি Upload</label><input id="pImage" type="file" accept="image/*"></div><button class="btn" onclick="saveProduct()">Save Product</button> <button class="btn secondary" onclick="clearProductForm()">Clear</button></div>
+     <div id="admin-manage" class="hidden"><h3>Manage Products</h3><div id="manageProducts" class="tablewrap"></div></div>
+     <div id="admin-categories" class="hidden"><h3>Category Images</h3><p class="muted small">আগের ৫টি Category-র নাম ও ক্রম একই থাকবে। প্রতিটির ছবি Upload বা পরিবর্তন করতে পারবে।</p><div id="categoryImageManager"></div></div>
+     <div id="admin-users" class="hidden"><h3>Users & Wallet</h3><div id="manageUsers" class="tablewrap"></div></div>
+     <div id="admin-payments" class="hidden"><h3>Pending Add Money</h3><div id="managePayments" class="tablewrap"></div></div>
+     <div id="admin-orders" class="hidden"><h3>All Orders</h3><div id="manageOrders" class="tablewrap"></div></div>
+    </div>
+   </div>
+  </section>
+ </main>
+ <nav class="nav">
+  <button class="active" data-page="home" onclick="showPage('home')"><b>⌂</b>Home</button>
+  <button data-page="cart" onclick="showPage('cart')"><b>🛒</b>Cart</button>
+  <button data-page="orders" onclick="showPage('orders')"><b>▣</b>Orders</button>
+  <button data-page="wallet" onclick="showPage('wallet')"><b>＋</b>Add Money</button>
+  <button data-page="profile" onclick="showPage('profile')"><b>♙</b>Profile</button>
+ </nav>
+ <div class="footer">APEX STORE · Shop with Confidence</div>
+</div>
+<div id="modal" class="loginbg hidden" style="position:fixed;inset:0;z-index:50;background:#101d4388">
+ <div class="card" style="width:min(540px,100%);max-height:90vh;overflow:auto"><div class="sectionhead"><h2>Place Your Order</h2><button class="btn secondary" onclick="closeModal()">✕</button></div><div id="checkoutProduct"></div>
+  <div class="field"><label>তোমার নাম</label><input id="buyerName" placeholder="আপনার পূর্ণ নাম"></div>
+  <div class="field"><label>১. বিভাগ</label><select id="division" onchange="updateDistricts()"><option value="">বিভাগ নির্বাচন করুন</option><option>ঢাকা</option><option>চট্টগ্রাম</option><option>রাজশাহী</option><option>খুলনা</option><option>বরিশাল</option><option>সিলেট</option><option>রংপুর</option><option>ময়মনসিংহ</option></select></div>
+  <div class="field"><label>২. জেলা</label><select id="district"><option value="">আগে বিভাগ নির্বাচন করুন</option></select></div>
+  <div class="field"><label>৩. ডেলিভারি চার্জ</label><select id="delivery"><option value="100">ঢাকার ভিতরে — ৳১০০</option><option value="140">ঢাকার বাইরে — ৳১৪০</option></select></div>
+  <div class="field"><label>৪. মোবাইল নম্বর</label><input id="buyerPhone" type="tel" placeholder="01XXXXXXXXX"></div>
+  <div class="field"><label>৫. ফুল লোকেশন</label><textarea id="buyerAddress" placeholder="বাড়ি/রোড/এলাকা/সম্পূর্ণ ঠিকানা"></textarea></div>
+  <div class="field"><label>Payment Method</label><select id="orderPayment" onchange="toggleOrderTrx()"><option value="wallet">Wallet Balance</option><option value="bkash">bKash Payment</option></select></div>
+  <div id="orderWalletInfo" class="notice">Wallet থেকে অর্ডারের মোট টাকা কেটে নেওয়া হবে।</div>
+  <div id="orderBkashFields" class="hidden"><div class="notice">bKash নম্বর: <b>01642268349</b><br>এই নম্বরে পেমেন্ট করে Transaction ID দিন।</div><div class="field"><label>bKash Transaction ID</label><input id="orderTrx" placeholder="Transaction ID"></div></div>
+  <div class="notice" id="checkoutTotal"></div><button class="btn" style="width:100%;margin-top:12px" onclick="placeOrder()">Confirm Order</button>
+ </div>
+</div>
+<script>
+const ADMIN_EMAIL='nibirgaming07@gmail.com', ADMIN_PIN='007007', PHONE='01642268349';
+const $=id=>document.getElementById(id);
+const read=(k,d)=>{try{return JSON.parse(localStorage.getItem('apex_'+k))??d}catch{return d}};
+const write=(k,v)=>localStorage.setItem('apex_'+k,JSON.stringify(v));
+let current=null, cart=read('cart',[]), selectedProduct=null, selectedImage='', activeCategory='All', registerMode=false;
+const CATEGORIES=[{name:'eFootball Store',icon:'⚽'},{name:'Gaming Product',icon:'🎮'},{name:'Gemini Pro',icon:'✨'},{name:'TikTok Coin',icon:'🎵'},{name:'Normal Product',icon:'🛍️'}];
+let products=[];
+let categoryImages={};
+let users=[],deposits=[],orders=[];
+function persist(){write('products',products);write('users',users);write('deposits',deposits);write('orders',orders);write('cart',cart)}
+function user(){return users.find(x=>x.email===current?.email)}
+function money(n){return Number(n||0).toLocaleString('en-US')}
+function toggleRegister(){if(!registerMode){registerMode=true;$('registerFields').classList.remove('hidden');$('loginBtn').classList.add('hidden');$('registerBtn').textContent='Register Now';$('registerBtn').onclick=register}else{registerMode=false;$('registerFields').classList.add('hidden');$('loginBtn').classList.remove('hidden');$('registerBtn').textContent='Create Account / Register';$('registerBtn').onclick=toggleRegister}}
+function login(){let email=$('authEmail').value.trim().toLowerCase(),pass=$('authPass').value;if(!email||!pass)return alert('ইমেইল ও পাসওয়ার্ড দিন।');let u=users.find(x=>x.email===email&&x.pass===pass);if(!u)return alert('অ্যাকাউন্ট পাওয়া যায়নি। আগে Register করুন অথবা তথ্য যাচাই করুন।');current={email};enterApp()}
+function register(){let name=$('authName').value.trim(),mobile=$('authMobile').value.trim(),email=$('authEmail').value.trim().toLowerCase(),pass=$('authPass').value;if(!name||!mobile||!email||!pass)return alert('নাম, মোবাইল, Email ও Password দিন।');if(!/^01[0-9]{9}$/.test(mobile))return alert('সঠিক ১১ সংখ্যার মোবাইল নম্বর দিন।');if(pass.length<6)return alert('পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের হতে হবে।');if(users.some(x=>x.email===email))return alert('এই ইমেইলে অ্যাকাউন্ট আছে। Login করুন।');users.push({email,pass,mobile,balance:0,name,joined:new Date().toISOString()});persist();current={email};registerMode=false;enterApp();alert('Account তৈরি হয়েছে!')}
+function googleInfo(){alert('Google Sign-in চালু করতে Firebase Authentication এবং আপনার Google OAuth/Firebase config যুক্ত করতে হবে। এই এক-ফাইল ডেমোতে Google login সক্রিয় নয়।')}
+function enterApp(){if(!user())return; $('loginScreen').classList.add('hidden');$('app').classList.remove('hidden');refresh();showPage('home')}
+function logout(){current=null;$('app').classList.add('hidden');$('loginScreen').classList.remove('hidden')}
+function refresh(){let u=user();if(!u)return;$('topBalance').textContent=money(u.balance);$('homeBalance').textContent=money(u.balance);$('walletBalance').textContent=money(u.balance);$('profileBalance').textContent=money(u.balance);$('profileName').textContent=u.name||u.email;$('profileEmail').textContent=u.email;$('topAvatar').textContent=(u.name||u.email)[0].toUpperCase();$('profileAvatar').textContent=(u.name||u.email)[0].toUpperCase();$('homeOrders').textContent=orders.filter(o=>o.email===current.email).length;$('adminEntry').classList.toggle('hidden',current.email!==ADMIN_EMAIL);renderCategories();renderProducts();renderCart();renderMyOrders();renderDeposits();if(current.email===ADMIN_EMAIL)renderAdmin()}
+function openAdmin(){if(current?.email!==ADMIN_EMAIL)return alert('এই Admin account অনুমোদিত নয়।');let pin=prompt('Admin PIN দিন:');if(pin!==ADMIN_PIN)return alert('ভুল Admin PIN।');showPage('admin')}
+function showPage(p){['home','cart','orders','wallet','profile','admin'].forEach(x=>$(x+'Page').classList.toggle('hidden',x!==p));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===p));if(p==='admin'&&current.email!==ADMIN_EMAIL){alert('Admin access denied');showPage('home');return}if(p==='admin')renderAdmin();window.scrollTo({top:0,behavior:'smooth'})}
+function renderCategories(){let el=$('categoryGrid');if(!el)return;el.innerHTML=CATEGORIES.map(c=>`<button class="category-tile ${activeCategory===c.name?'active':''}" onclick="filterCategory('${c.name}')">${categoryImages[c.name]?`<img src="${categoryImages[c.name]}" alt="${esc(c.name)}">`:`<span>${c.icon}</span>`}${c.name}</button>`).join('');}
+function filterCategory(name){activeCategory=name;renderCategories();$('productsHeading').textContent=name==='All'?'All Products':name;$('productsArea').scrollIntoView({behavior:'smooth',block:'start'});renderProducts()}
+function renderProducts(){let q=($('searchProduct')?.value||'').toLowerCase();let list=products.filter(p=>(activeCategory==='All'||(p.category||'Normal Product')===activeCategory)&&p.name.toLowerCase().includes(q));$('productGrid').innerHTML=list.length?list.map(p=>`<div class="card product"><div class="prodimg">${p.image?`<img src="${p.image}">`:(p.emoji||'🛍️')}</div><span class="tag">${esc(p.category||'Normal Product')}</span><h3>${esc(p.name)}</h3><p>${esc(p.details||'')}</p><div class="price">৳${money(p.price)}</div><div class="stock">${p.stock>0?'In Stock: '+p.stock:'Out of Stock'}</div>${['eFootball Store','Gemini Pro','TikTok Coin'].includes(p.category)?`<button class="btn" ${p.stock<=0?'disabled':''} onclick="whatsappOrder('${p.id}')">Order on WhatsApp</button>`:`<button class="btn" ${p.stock<=0?'disabled':''} onclick="addCart('${p.id}')">Add to Cart</button><button class="btn secondary" ${p.stock<=0?'disabled':''} onclick="buyNow('${p.id}')">Buy Now</button>`}</div>`).join(''):'<div class="card empty">এই Category-তে এখনো কোনো Product নেই।</div>';}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function addCart(id){let p=products.find(x=>x.id===id);if(!p)return;let item=cart.find(x=>x.id===id);if(item)item.qty++;else cart.push({id,qty:1});persist();renderCart();alert('Cart-এ যোগ হয়েছে।')}
+function buyNow(id){let p=products.find(x=>x.id===id);if(p&&['eFootball Store','Gemini Pro','TikTok Coin'].includes(p.category))return whatsappOrder(id);addCart(id);showPage('cart')}
+function whatsappOrder(id){let p=products.find(x=>x.id===id);if(!p)return;let msg=`APEX STORE Order Request%0AProduct: ${encodeURIComponent(p.name)}%0ACategory: ${encodeURIComponent(p.category)}%0APrice: ${p.price} BDT%0AName: ${encodeURIComponent(user()?.name||'')}%0AMobile: ${encodeURIComponent(user()?.mobile||'')}`;window.open('https://wa.me/8801642268349?text='+msg,'_blank')}
+function renderCart(){let el=$('cartContent');if(!el)return;if(!cart.length){el.innerHTML='<div class="empty">আপনার Cart খালি।</div>';return}el.innerHTML=cart.map(c=>{let p=products.find(x=>x.id===c.id);return p?`<div class="row" style="padding:9px 0;border-bottom:1px solid var(--line)"><div><b>${esc(p.name)}</b><div class="muted small">৳${money(p.price)} × ${c.qty}</div></div><button class="btn secondary" onclick="changeQty('${p.id}',-1)">−</button><b>${c.qty}</b><button class="btn secondary" onclick="changeQty('${p.id}',1)">＋</button><button class="btn danger" onclick="removeCart('${p.id}')">Remove</button></div>`:''}).join('')+`<h3>Total: ৳${money(cart.reduce((s,c)=>s+(products.find(p=>p.id===c.id)?.price||0)*c.qty,0))}</h3><button class="btn" onclick="checkout()">Proceed to Checkout</button>`}
+function changeQty(id,n){let c=cart.find(x=>x.id===id);if(!c)return;c.qty+=n;if(c.qty<1)cart=cart.filter(x=>x.id!==id);persist();renderCart()}
+function removeCart(id){cart=cart.filter(x=>x.id!==id);persist();renderCart()}
+function checkout(){if(!cart.length)return;let special=cart.filter(c=>{let p=products.find(x=>x.id===c.id);return p&&['eFootball Store','Gemini Pro','TikTok Coin'].includes(p.category)});if(special.length){if(cart.length!==1)return alert('eFootball, Gemini Pro ও TikTok Coin-এর অর্ডার আলাদাভাবে WhatsApp-এ করতে হবে।');return whatsappOrder(cart[0].id)}selectedProduct=null;$('checkoutProduct').innerHTML=cart.map(c=>{let p=products.find(x=>x.id===c.id);return p?`<p><b>${esc(p.name)}</b> × ${c.qty} — ৳${money(p.price*c.qty)}</p>`:''}).join('');$('checkoutTotal').textContent='পণ্যের মূল্য: ৳'+money(cart.reduce((s,c)=>s+(products.find(p=>p.id===c.id)?.price||0)*c.qty,0))+' + ডেলিভারি চার্জ';$('orderPayment').value='wallet';toggleOrderTrx();$('modal').classList.remove('hidden')}
+function closeModal(){$('modal').classList.add('hidden')}
+function toggleOrderTrx(){let bk=$('orderPayment').value==='bkash';$('orderBkashFields').classList.toggle('hidden',!bk);$('orderWalletInfo').classList.toggle('hidden',bk)}
+const districts={'ঢাকা':['ঢাকা','গাজীপুর','নারায়ণগঞ্জ','টাঙ্গাইল','মানিকগঞ্জ','মুন্সিগঞ্জ','নরসিংদী','ফরিদপুর','গোপালগঞ্জ','মাদারীপুর','রাজবাড়ী','শরীয়তপুর','কিশোরগঞ্জ'],'চট্টগ্রাম':['চট্টগ্রাম','কক্সবাজার','কুমিল্লা','ফেনী','নোয়াখালী','লক্ষ্মীপুর','চাঁদপুর','ব্রাহ্মণবাড়িয়া','রাঙ্গামাটি','খাগড়াছড়ি','বান্দরবান'],'রাজশাহী':['রাজশাহী','বগুড়া','পাবনা','সিরাজগঞ্জ','নাটোর','নওগাঁ','জয়পুরহাট','চাঁপাইনবাবগঞ্জ'],'খুলনা':['খুলনা','যশোর','সাতক্ষীরা','বাগেরহাট','নড়াইল','মাগুরা','কুষ্টিয়া','চুয়াডাঙ্গা','মেহেরপুর','ঝিনাইদহ'],'বরিশাল':['বরিশাল','ভোলা','পটুয়াখালী','পিরোজপুর','বরগুনা','ঝালকাঠি'],'সিলেট':['সিলেট','মৌলভীবাজার','হবিগঞ্জ','সুনামগঞ্জ'],'রংপুর':['রংপুর','দিনাজপুর','কুড়িগ্রাম','গাইবান্ধা','লালমনিরহাট','নীলফামারী','পঞ্চগড়','ঠাকুরগাঁও'],'ময়মনসিংহ':['ময়মনসিংহ','জামালপুর','নেত্রকোণা','শেরপুর']};
+function updateDistricts(){let d=$('division').value;$('district').innerHTML='<option value="">জেলা নির্বাচন করুন</option>'+(districts[d]||[]).map(x=>`<option>${x}</option>`).join('')}
+function placeOrder(){let u=user(),name=$('buyerName').value.trim(),division=$('division').value,district=$('district').value,fee=Number($('delivery').value),phone=$('buyerPhone').value.trim(),address=$('buyerAddress').value.trim();if(!name||!division||!district||!phone||!address)return alert('সব তথ্য পূরণ করুন।');if(!/^01[0-9]{9}$/.test(phone))return alert('সঠিক ১১ সংখ্যার বাংলাদেশি মোবাইল নম্বর দিন।');let lines=cart.map(c=>{let p=products.find(x=>x.id===c.id);return p?{id:p.id,name:p.name,price:p.price,qty:c.qty}:null}).filter(Boolean);if(!lines.length)return alert('Cart-এ Product নেই।');for(let l of lines){let p=products.find(x=>x.id===l.id);if(p.stock<l.qty)return alert(l.name+' পর্যাপ্ত Stock নেই।')}let subtotal=lines.reduce((s,x)=>s+x.price*x.qty,0),total=subtotal+fee,method=$('orderPayment').value,trx=$('orderTrx').value.trim();if(method==='wallet'&&u.balance<total)return alert('আপনার Wallet-এ পর্যাপ্ত টাকা নেই। আগে Add Money করুন।');if(method==='bkash'&&!trx)return alert('bKash Transaction ID দিন।');if(method==='bkash'&&orders.some(o=>o.trx&&o.trx.toLowerCase()===trx.toLowerCase()))return alert('এই Transaction ID আগে ব্যবহার হয়েছে।');if(method==='wallet')u.balance-=total;orders.unshift({id:'APX-'+Date.now().toString().slice(-8),email:current.email,name,division,district,delivery:fee,phone,address,items:lines,subtotal,total,paymentMethod:method,trx:method==='bkash'?trx:'',walletDeducted:method==='wallet',status:method==='wallet'?'Confirmed':'Pending',created:new Date().toISOString()});lines.forEach(l=>products.find(p=>p.id===l.id).stock-=l.qty);cart=[];persist();closeModal();refresh();showPage('orders');alert(method==='wallet'?'Wallet থেকে টাকা কেটে Order Confirm হয়েছে।':'bKash Transaction ID জমা হয়েছে। Admin যাচাই করে Order Confirm করবে।')}
+function renderMyOrders(){let list=orders.filter(o=>o.email===current.email);$('myOrders').innerHTML=list.length?list.map(o=>`<div class="card"><div class="row"><b>${o.id}</b><span class="status ${o.status.toLowerCase()}">${o.status}</span></div><p>${o.items.map(i=>esc(i.name)+' × '+i.qty).join('<br>')}</p><p class="muted small">${esc(o.name)} · ${esc(o.phone)} · ${esc(o.district)}, ${esc(o.division)}</p><p>${esc(o.address)}</p><b>Total: ৳${money(o.total)}</b><div class="muted small">${new Date(o.created).toLocaleString()}</div></div>`).join(''):'<div class="card empty">এখনো কোনো Order নেই।</div>'}
+function submitDeposit(){let amount=Number($('depositAmount').value),trx=$('depositTrx').value.trim();if(!Number.isFinite(amount)||amount<10||amount>25000)return alert('১০ থেকে ২৫,০০০ টাকার মধ্যে Amount দিন।');if(!trx)return alert('Transaction ID দিন।');if(deposits.some(d=>d.trx.toLowerCase()===trx.toLowerCase()))return alert('এই Transaction ID আগে জমা হয়েছে।');deposits.unshift({id:'PAY-'+Date.now(),email:current.email,amount,trx,status:'Pending',created:new Date().toISOString()});persist();$('depositAmount').value='';$('depositTrx').value='';renderDeposits();alert('Request জমা হয়েছে। যাচাই শেষে Wallet আপডেট হবে।')}
+function renderDeposits(){let list=deposits.filter(d=>d.email===current.email);$('myDeposits').innerHTML=list.length?list.map(d=>`<p>৳${money(d.amount)} · ${esc(d.trx)} · <span class="status ${d.status.toLowerCase()}">${d.status}</span></p>`).join(''):'কোনো Request নেই।'}
+function adminTab(t,btn){['dash','add','manage','categories','users','payments','orders'].forEach(x=>$('admin-'+x).classList.toggle('hidden',x!==t));document.querySelectorAll('.adminmenu button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderAdmin();if(t==='categories')renderCategoryImageManager()}
+function renderAdmin(){if(current?.email!==ADMIN_EMAIL)return;$('aProducts').textContent=products.length;$('aUsers').textContent=users.length;$('aOrders').textContent=orders.length;$('adminRecent').innerHTML=`<p>Pending payments: <b>${deposits.filter(d=>d.status==='Pending').length}</b></p><p>Pending orders: <b>${orders.filter(o=>o.status==='Pending').length}</b></p>`;$('manageProducts').innerHTML=table(['Product','Category','Price','Stock','Action'],products.map(p=>[esc(p.name),esc(p.category||'Normal Product'),'৳'+money(p.price),p.stock,`<div class="actions"><button class="btn secondary" onclick="editProduct('${p.id}')">Edit</button><button class="btn danger" onclick="deleteProduct('${p.id}')">Delete</button></div>`]));$('manageUsers').innerHTML=table(['Email','Name','Mobile','Wallet','Joined'],users.map(u=>[esc(u.email),esc(u.name),esc(u.mobile||'—'),'৳'+money(u.balance),u.joined?new Date(u.joined).toLocaleDateString():'—']));$('managePayments').innerHTML=table(['User','Amount','Transaction ID','Status','Action'],deposits.map(d=>[esc(d.email),'৳'+money(d.amount),esc(d.trx),d.status,d.status==='Pending'?`<div class="actions"><button class="btn success" onclick="reviewPayment('${d.id}',true)">Approve</button><button class="btn danger" onclick="reviewPayment('${d.id}',false)">Reject</button></div>`:'—']));$('manageOrders').innerHTML=table(['Order','Customer','Details','Total','Status','Action'],orders.map(o=>[o.id,esc(o.name)+'<br>'+esc(o.phone),esc(o.district)+', '+esc(o.division)+'<br>'+esc(o.address)+'<br>Payment: '+esc(o.paymentMethod||'—')+(o.trx?'<br>TRX: '+esc(o.trx):''), '৳'+money(o.total),o.status,o.status==='Pending'?`<div class="actions"><button class="btn success" onclick="reviewOrder('${o.id}',true)">Confirm</button><button class="btn danger" onclick="reviewOrder('${o.id}',false)">Reject</button></div>`:'—']))}
+function renderCategoryImageManager(){const el=$('categoryImageManager');if(!el)return;el.innerHTML=CATEGORIES.map((c,i)=>`<div class="card" style="margin:12px 0;display:flex;gap:12px;align-items:center;flex-wrap:wrap"><div style="width:92px;height:72px;border-radius:12px;overflow:hidden;background:#edf3ff;display:grid;place-items:center">${categoryImages[c.name]?`<img src="${esc(categoryImages[c.name])}" style="width:100%;height:100%;object-fit:cover">`:`<span style="font-size:30px">${c.icon}</span>`}</div><div style="flex:1;min-width:180px"><b>${c.name}</b><div class="muted small">${categoryImages[c.name]?'ছবি সেট করা আছে':'এখনো ছবি দেওয়া হয়নি'}</div><input id="catImageUrl${i}" type="url" placeholder="ছবির সরাসরি URL এখানে Paste করুন" value="${esc(categoryImages[c.name]||'')}" style="width:100%;margin-top:8px"><button class="btn" style="margin-top:8px" onclick="saveCategoryImageUrl('${c.name}',${i})">Save Image Link</button></div></div>`).join('')}
+function table(headers,rows){return '<table><thead><tr>'+headers.map(h=>'<th>'+h+'</th>').join('')+'</tr></thead><tbody>'+(rows.length?rows.map(r=>'<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>').join(''):'<tr><td colspan="'+headers.length+'">কোনো তথ্য নেই</td></tr>')+'</tbody></table>'}
+function reviewPayment(id,ok){let d=deposits.find(x=>x.id===id);if(!d||d.status!=='Pending')return;if(ok){let u=users.find(x=>x.email===d.email);if(u)u.balance=(u.balance||0)+d.amount;d.status='Approved'}else d.status='Rejected';persist();refresh();alert(ok?'Payment approved, wallet credited.':'Payment rejected; wallet not credited.')}
+function reviewOrder(id,ok){let o=orders.find(x=>x.id===id);if(!o||o.status!=='Pending')return;o.status=ok?'Confirmed':'Rejected';if(!ok){o.items.forEach(i=>{let p=products.find(x=>x.id===i.id);if(p)p.stock+=i.qty});if(o.walletDeducted){let u=users.find(x=>x.email===o.email);if(u)u.balance=(u.balance||0)+o.total}}persist();refresh();alert(ok?'Order confirmed.':'Order rejected; stock restored and wallet refunded if applicable.')}
+function saveProduct(){let id=$('editProductId').value,name=$('pName').value.trim(),category=$('pCategory').value,price=Number($('pPrice').value),stock=Number($('pStock').value),details=$('pDetails').value.trim();if(!name||!Number.isFinite(price)||price<0||!Number.isInteger(stock)||stock<0)return alert('Product name, valid price ও stock দিন।');let finish=image=>{if(id){let p=products.find(x=>x.id===id);Object.assign(p,{name,category,price,stock,details,image:image||p.image})}else products.unshift({id:'p'+Date.now(),name,category,price,stock,details,image,emoji:'🛍️'});persist();clearProductForm();refresh();alert('Product saved.')};let f=$('pImage').files[0];if(f){if(f.size>1200000)return alert('ছবির সাইজ ১.২ MB-এর কম রাখুন।');let r=new FileReader();r.onload=()=>finish(r.result);r.readAsDataURL(f)}else finish('')}
+function editProduct(id){let p=products.find(x=>x.id===id);if(!p)return;$('editProductId').value=id;$('pCategory').value=p.category||'Normal Product';$('pName').value=p.name;$('pPrice').value=p.price;$('pStock').value=p.stock;$('pDetails').value=p.details||'';$('pImageUrl').value=p.image||'';$('productFormTitle').textContent='Edit Product';document.querySelectorAll('.adminmenu button')[1].click()}
+function deleteProduct(id){if(!confirm('এই Product delete করবেন?'))return;products=products.filter(p=>p.id!==id);persist();refresh()}
+function clearProductForm(){$('editProductId').value='';$('pCategory').value='eFootball Store';$('pName').value='';$('pPrice').value='';$('pStock').value='';$('pDetails').value='';$('pImage').value='';if($('pImageUrl'))$('pImageUrl').value='';$('productFormTitle').textContent='Add Product'}
+(function init(){if(!users.length){/* no seeded credentials */} })();
+
+window.apexBridge = {
+  setData(data) {
+    products = data.products || [];
+    users = data.users || [];
+    deposits = data.deposits || [];
+    orders = data.orders || [];
+    current = data.current || null;
+    if (current) {
+      $('loginScreen').classList.add('hidden');
+      $('app').classList.remove('hidden');
+      refresh();
+      showPage('home');
+    } else {
+      $('app').classList.add('hidden');
+      $('loginScreen').classList.remove('hidden');
+    }
+  },
+  setProducts(list) { products = list || []; if (current) refresh(); },
+  setCategoryImages(map) { categoryImages = map || {}; if (current) { renderCategories(); if(current.email===ADMIN_EMAIL) renderCategoryImageManager(); } },
+  setUsers(list) { users = list || []; if (current) refresh(); },
+  setDeposits(list) { deposits = list || []; if (current) refresh(); },
+  setOrders(list) { orders = list || []; if (current) refresh(); },
+  getCurrent() { return current; },
+  getCart() { return cart; },
+  clearCart() { cart = []; write('cart', cart); renderCart(); },
+  form(id) { return $(id); },
+  refresh() { refresh(); },
+  closeModal() { closeModal(); },
+  showOrders() { showPage('orders'); },
+  showAdmin() { showPage('admin'); },
+  setAdminEmail(email) { if (current) current.email = email; },
+  setBalance(balance) {
+    const u = users.find(x => x.email === current?.email);
+    if (u) u.balance = balance;
+    if (current) refresh();
+  }
+};
+
+</script>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import {
+  getAuth, onAuthStateChanged, createUserWithEmailAndPassword,
+  signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup,
+  signOut, updateProfile
+} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+import {
+  getFirestore, collection, doc, getDoc, getDocs, setDoc, addDoc,
+  updateDoc, deleteDoc, query, where, onSnapshot, runTransaction,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+import {
+  getStorage, ref, uploadBytes, getDownloadURL, deleteObject
+} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-storage.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAVF_nQe8A_Ur-lJUfzFWW4UtNe25I-qd4",
+  authDomain: "apex-store-29f89.firebaseapp.com",
+  projectId: "apex-store-29f89",
+  storageBucket: "apex-store-29f89.firebasestorage.app",
+  messagingSenderId: "1003847729673",
+  appId: "1:1003847729673:web:c5e917899dcd74eb9baed8",
+  measurementId: "G-ZW0NEJH8BQ"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const storage = getStorage(app);
+const ADMIN_EMAIL = "nibirgaming07@gmail.com";
+const ADMIN_PIN = "007007";
+const PHONE = "01642268349";
+const $ = id => document.getElementById(id);
+let stopListeners = [];
+let allProducts = [], allUsers = [], allDeposits = [], allOrders = [];
+let allCategoryImages = {};
+let authReady = false;
+
+function err(e) {
+  console.error(e);
+  alert("সমস্যা হয়েছে: " + (e?.message || "Firebase operation failed") +
+    "\nFirebase Console-এ Authentication, Firestore, Storage এবং Rules পরীক্ষা করুন।");
+}
+function stopAll() { stopListeners.forEach(fn => fn()); stopListeners = []; }
+function mapSnap(s) { return s.docs.map(d => ({ id: d.id, ...d.data() })); }
+function currentUser() { return auth.currentUser; }
+function setUI() {
+  const u = currentUser();
+  window.apexBridge.setData({
+    products: allProducts,
+    users: allUsers,
+    deposits: allDeposits,
+    orders: allOrders,
+    current: u ? { uid: u.uid, email: u.email, name: u.displayName || "" } : null
+  });
+}
+async function ensureUserDoc(u, profile = {}) {
+  const r = doc(db, "users", u.uid);
+  const snap = await getDoc(r);
+  if (!snap.exists()) {
+    await setDoc(r, {
+      uid: u.uid, email: u.email || "", name: profile.name || u.displayName || "",
+      mobile: profile.mobile || "", balance: 0, createdAt: new Date().toISOString()
+    });
+  }
+}
+function startDataListeners(u) {
+  stopAll();
+  const isAdmin = (u.email || "").toLowerCase() === ADMIN_EMAIL;
+  stopListeners.push(onSnapshot(collection(db, "products"), s => {
+    allProducts = mapSnap(s); window.apexBridge.setProducts(allProducts);
+  }, err));
+  stopListeners.push(onSnapshot(collection(db, "categorySettings"), s => {
+    allCategoryImages = {}; s.docs.forEach(d => { if(d.data().image) allCategoryImages[d.id] = d.data().image; });
+    window.apexBridge.setCategoryImages(allCategoryImages);
+  }, err));
+  if (isAdmin) {
+    stopListeners.push(onSnapshot(collection(db, "users"), s => {
+      allUsers = mapSnap(s); window.apexBridge.setUsers(allUsers);
+    }, err));
+    stopListeners.push(onSnapshot(collection(db, "deposits"), s => {
+      allDeposits = mapSnap(s).sort((a,b) => (b.createdAt||"").localeCompare(a.createdAt||""));
+      window.apexBridge.setDeposits(allDeposits);
+    }, err));
+    stopListeners.push(onSnapshot(collection(db, "orders"), s => {
+      allOrders = mapSnap(s).sort((a,b) => (b.createdAt||"").localeCompare(a.createdAt||""));
+      window.apexBridge.setOrders(allOrders);
+    }, err));
+    stopListeners.push(onSnapshot(doc(db, "users", u.uid), s => {
+      if (s.exists()) {
+        const own = s.data();
+        allUsers = [own, ...allUsers.filter(x => x.uid !== u.uid)];
+        window.apexBridge.setUsers(allUsers);
+      }
+    }, err));
+  } else {
+    stopListeners.push(onSnapshot(doc(db, "users", u.uid), s => {
+      if (s.exists()) {
+        allUsers = [s.data()];
+        window.apexBridge.setUsers(allUsers);
+      }
+    }, err));
+    stopListeners.push(onSnapshot(query(collection(db, "deposits"), where("uid","==",u.uid)), s => {
+      allDeposits = mapSnap(s); window.apexBridge.setDeposits(allDeposits);
+    }, err));
+    stopListeners.push(onSnapshot(query(collection(db, "orders"), where("uid","==",u.uid)), s => {
+      allOrders = mapSnap(s); window.apexBridge.setOrders(allOrders);
+    }, err));
+  }
+  setUI();
+}
+
+onAuthStateChanged(auth, async u => {
+  authReady = true;
+  if (!u) {
+    stopAll(); allUsers=[]; allDeposits=[]; allOrders=[];
+    window.apexBridge.setData({products: allProducts, users:[], deposits:[], orders:[], current:null});
+    return;
+  }
+  try {
+    await ensureUserDoc(u);
+    startDataListeners(u);
+  } catch(e) { err(e); }
+});
+
+window.login = async function() {
+  const email = $("authEmail").value.trim().toLowerCase();
+  const pass = $("authPass").value;
+  if (!email || !pass) return alert("Email ও Password দিন।");
+  try { await signInWithEmailAndPassword(auth, email, pass); }
+  catch(e) { err(e); }
+};
+
+window.register = async function() {
+  const name = $("authName").value.trim();
+  const mobile = $("authMobile").value.trim();
+  const email = $("authEmail").value.trim().toLowerCase();
+  const pass = $("authPass").value;
+  if (!name || !mobile || !email || !pass) return alert("নাম, মোবাইল, Email ও Password দিন।");
+  if (!/^01[0-9]{9}$/.test(mobile)) return alert("সঠিক ১১ সংখ্যার মোবাইল নম্বর দিন।");
+  if (pass.length < 6) return alert("Password কমপক্ষে ৬ অক্ষরের হতে হবে।");
+  try {
+    const cred = await createUserWithEmailAndPassword(auth, email, pass);
+    await updateProfile(cred.user, { displayName: name });
+    await setDoc(doc(db, "users", cred.user.uid), {
+      uid: cred.user.uid, email, name, mobile, balance: 0,
+      createdAt: new Date().toISOString()
+    });
+    alert("Account তৈরি হয়েছে!");
+  } catch(e) { err(e); }
+};
+
+window.googleInfo = async function() {
+  try {
+    const provider = new GoogleAuthProvider();
+    const result = await signInWithPopup(auth, provider);
+    await ensureUserDoc(result.user);
+  } catch(e) { err(e); }
+};
+window.logout = async function() {
+  try { await signOut(auth); }
+  catch(e) { err(e); }
+};
+
+window.submitDeposit = async function() {
+  const u = currentUser();
+  const amount = Number($("depositAmount").value);
+  const trx = $("depositTrx").value.trim();
+  if (!u) return alert("আগে Login করুন।");
+  if (!Number.isFinite(amount) || amount < 10 || amount > 25000)
+    return alert("১০ থেকে ২৫,০০০ টাকার মধ্যে Amount দিন।");
+  if (!trx) return alert("Transaction ID দিন।");
+  try {
+    const trxKey = btoa(unescape(encodeURIComponent(trx.toLowerCase()))).replace(/[/+=]/g,"").slice(0,100);
+    const trxRef = doc(db, "depositTransactions", trxKey);
+    await setDoc(trxRef, { uid:u.uid, trx, createdAt:new Date().toISOString() });
+    await addDoc(collection(db, "deposits"), {
+      uid:u.uid, email:u.email, amount, trx, status:"Pending",
+      createdAt:new Date().toISOString()
+    });
+    $("depositAmount").value=""; $("depositTrx").value="";
+    alert("bKash Request জমা হয়েছে। Admin যাচাই করে Approve করলে Wallet-এ টাকা যোগ হবে।");
+  } catch(e) { err(e); }
+};
+
+window.reviewPayment = async function(id, approve) {
+  const admin = currentUser();
+  if (!admin || admin.email.toLowerCase() !== ADMIN_EMAIL) return alert("Admin access denied");
+  try {
+    await runTransaction(db, async tx => {
+      const depRef=doc(db,"deposits",id), depSnap=await tx.get(depRef);
+      if (!depSnap.exists() || depSnap.data().status !== "Pending") throw new Error("এই Payment আর Pending নেই।");
+      const dep=depSnap.data();
+      if (approve) {
+        const userRef=doc(db,"users",dep.uid), userSnap=await tx.get(userRef);
+        if (!userSnap.exists()) throw new Error("User account পাওয়া যায়নি।");
+        tx.update(userRef,{balance:Number(userSnap.data().balance||0)+Number(dep.amount)});
+      }
+      tx.update(depRef,{status:approve?"Approved":"Rejected", reviewedAt:new Date().toISOString(), reviewedBy:admin.email});
+    });
+    alert(approve?"Payment approved, Wallet credited.":"Payment rejected; Wallet-এ টাকা যোগ হয়নি।");
+  } catch(e) { err(e); }
+};
+
+window.placeOrder = async function() {
+  const u=currentUser();
+  if (!u) return alert("আগে Login করুন।");
+  const name=$("buyerName").value.trim(), division=$("division").value,
+    district=$("district").value, fee=Number($("delivery").value),
+    phone=$("buyerPhone").value.trim(), address=$("buyerAddress").value.trim();
+  if(!name||!division||!district||!phone||!address) return alert("সব তথ্য পূরণ করুন।");
+  if(!/^01[0-9]{9}$/.test(phone)) return alert("সঠিক ১১ সংখ্যার মোবাইল নম্বর দিন।");
+  const cart=window.apexBridge.getCart();
+  if(!cart.length) return alert("Cart-এ Product নেই।");
+  const items=[];
+  for(const c of cart) {
+    const p=allProducts.find(x=>x.id===c.id);
+    if(!p || Number(p.stock)<Number(c.qty)) return alert((p?.name||"Product")+" পর্যাপ্ত Stock নেই।");
+    items.push({productId:p.id,name:p.name,category:p.category,price:Number(p.price),qty:Number(c.qty)});
+  }
+  const subtotal=items.reduce((n,x)=>n+x.price*x.qty,0), total=subtotal+fee;
+  const paymentMethod=$("orderPayment").value, trx=$("orderTrx").value.trim();
+  if(paymentMethod==="wallet") {
+    const own=allUsers.find(x=>x.uid===u.uid);
+    if(Number(own?.balance||0)<total) return alert("আপনার Wallet-এ পর্যাপ্ত টাকা নেই। আগে Add Money করুন।");
+  } else if(!trx) return alert("bKash Transaction ID দিন।");
+  try {
+    await addDoc(collection(db,"orders"),{
+      uid:u.uid,email:u.email,name,division,district,delivery:fee,phone,address,
+      items,subtotal,total,paymentMethod,trx:paymentMethod==="bkash"?trx:"",
+      status:"Pending",createdAt:new Date().toISOString()
+    });
+    window.apexBridge.clearCart();
+    window.apexBridge.closeModal();
+    alert(paymentMethod==="wallet"
+      ? "Order জমা হয়েছে। Wallet থেকে টাকা Admin Confirm করার সময় কাটা হবে।"
+      : "bKash Transaction ID-সহ Order জমা হয়েছে। Admin যাচাই করে Confirm করবে।");
+    window.apexBridge.showOrders();
+  } catch(e) { err(e); }
+};
+
+window.reviewOrder = async function(id, approve) {
+  const admin=currentUser();
+  if(!admin || admin.email.toLowerCase()!==ADMIN_EMAIL) return alert("Admin access denied");
+  try {
+    await runTransaction(db, async tx => {
+      const orderRef=doc(db,"orders",id), orderSnap=await tx.get(orderRef);
+      if(!orderSnap.exists() || orderSnap.data().status!=="Pending") throw new Error("Order আর Pending নেই।");
+      const order=orderSnap.data();
+      const userRef=doc(db,"users",order.uid), userSnap=await tx.get(userRef);
+      if(!userSnap.exists()) throw new Error("User পাওয়া যায়নি।");
+      let freshSubtotal=0, productSnaps=[];
+      for(const item of order.items) {
+        const pRef=doc(db,"products",item.productId), pSnap=await tx.get(pRef);
+        if(!pSnap.exists()) throw new Error("Product পাওয়া যায়নি: "+item.name);
+        const p=pSnap.data();
+        if(Number(p.stock)<Number(item.qty)) throw new Error("Stock নেই: "+item.name);
+        freshSubtotal += Number(p.price)*Number(item.qty);
+        productSnaps.push({ref:pRef,snap:pSnap,qty:Number(item.qty)});
+      }
+      const freshTotal=freshSubtotal+Number(order.delivery||0);
+      if(approve) {
+        if(order.paymentMethod==="wallet" && Number(userSnap.data().balance||0)<freshTotal) {
+          tx.update(orderRef,{status:"Rejected",adminNote:"Insufficient wallet balance",reviewedAt:new Date().toISOString()});
+          return;
+        }
+        if(order.paymentMethod==="wallet") tx.update(userRef,{balance:Number(userSnap.data().balance||0)-freshTotal});
+        for(const p of productSnaps) tx.update(p.ref,{stock:Number(p.snap.data().stock)-p.qty});
+        tx.update(orderRef,{status:"Confirmed",subtotal:freshSubtotal,total:freshTotal,reviewedAt:new Date().toISOString(),reviewedBy:admin.email});
+      } else {
+        tx.update(orderRef,{status:"Rejected",reviewedAt:new Date().toISOString(),reviewedBy:admin.email});
+      }
+    });
+    alert(approve?"Order Confirmed হয়েছে।":"Order Reject হয়েছে।");
+  } catch(e) { err(e); }
+};
+
+window.saveProduct = async function() {
+  const admin=currentUser();
+  if(!admin || admin.email.toLowerCase()!==ADMIN_EMAIL) return alert("Admin access denied");
+  const id=$("editProductId").value, name=$("pName").value.trim(),
+    category=$("pCategory").value, price=Number($("pPrice").value),
+    stock=Number($("pStock").value), details=$("pDetails").value.trim();
+  if(!name||!Number.isFinite(price)||price<0||!Number.isInteger(stock)||stock<0)
+    return alert("Product name, valid price ও stock দিন।");
+  try {
+    let image="";
+    const existing=allProducts.find(p=>p.id===id);
+    const imageUrl=($("pImageUrl")?.value||"").trim();
+    if(imageUrl) {
+      let parsed;
+      try { parsed=new URL(imageUrl); } catch(e) { return alert("সঠিক Image URL দিন।"); }
+      if(!["https:","http:"].includes(parsed.protocol)) return alert("সঠিক Image URL দিন।");
+      image=imageUrl;
+    } else if($("pImage").files[0]) {
+      const file=$("pImage").files[0];
+      if(file.size>5*1024*1024) return alert("ছবির সাইজ ৫ MB-এর কম রাখুন।");
+      const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,"_");
+      const imageRef=ref(storage,`productImages/${Date.now()}_${safeName}`);
+      await uploadBytes(imageRef,file,{contentType:file.type});
+      image=await getDownloadURL(imageRef);
+    } else image=existing?.image||"";
+    const payload={name,category,price,stock,details,image,updatedAt:new Date().toISOString()};
+    if(id) await updateDoc(doc(db,"products",id),payload);
+    else await addDoc(collection(db,"products"),{...payload,createdAt:new Date().toISOString()});
+    if(typeof window.clearProductForm==="function") window.clearProductForm();
+    alert("Product Firebase Database-এ Save হয়েছে।");
+  } catch(e) { err(e); }
+};
+
+window.saveCategoryImageUrl = async function(category, index) {
+  const admin=currentUser();
+  if(!admin || !admin.email || admin.email.toLowerCase()!==ADMIN_EMAIL) return alert("Admin access denied");
+  const input=document.getElementById("catImageUrl"+index);
+  const image=(input?.value||"").trim();
+  if(!image) return alert("ছবির URL দিন।");
+  try {
+    const parsed=new URL(image);
+    if(!["https:","http:"].includes(parsed.protocol)) throw new Error("Invalid URL");
+    await setDoc(doc(db,"categorySettings",category),{name:category,image,updatedAt:new Date().toISOString(),updatedBy:admin.email},{merge:true});
+    alert(category+"-এর ছবি Link দিয়ে Update হয়েছে।");
+  } catch(e) { if(e.message==="Invalid URL") alert("সঠিক Image URL দিন।"); else err(e); }
+};
+
+window.saveCategoryImage = async function(category, input) {
+  const admin=currentUser();
+  if(!admin || admin.email.toLowerCase()!==ADMIN_EMAIL) return alert("Admin access denied");
+  const file=input.files && input.files[0]; if(!file) return;
+  if(!file.type.startsWith("image/")) { input.value=""; return alert("শুধু Image ফাইল Upload করুন।"); }
+  if(file.size>5*1024*1024) { input.value=""; return alert("ছবির সাইজ ৫ MB-এর কম রাখুন।"); }
+  try {
+    const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,"_");
+    const imageRef=ref(storage,`categoryImages/${Date.now()}_${safeName}`);
+    await uploadBytes(imageRef,file,{contentType:file.type});
+    const image=await getDownloadURL(imageRef);
+    await setDoc(doc(db,"categorySettings",category),{name:category,image,updatedAt:new Date().toISOString(),updatedBy:admin.email},{merge:true});
+    alert(category+"-এর ছবি Update হয়েছে।");
+  } catch(e) { err(e); }
+  finally { input.value=""; }
+};
+
+window.deleteProduct = async function(id) {
+  const admin=currentUser();
+  if(!admin || admin.email.toLowerCase()!==ADMIN_EMAIL) return alert("Admin access denied");
+  if(!confirm("এই Product delete করবেন?")) return;
+  try { await deleteDoc(doc(db,"products",id)); alert("Product delete হয়েছে।"); }
+  catch(e) { err(e); }
+};
+
+window.addEventListener("DOMContentLoaded", () => {
+  const adminHint=document.querySelector("#loginScreen .small.muted.center");
+  if(adminHint) adminHint.remove();
+  const bkashHints=document.querySelectorAll("body *");
+  // Payment number is kept consistent in the visible wallet instructions.
+  document.querySelectorAll("input,button").forEach(el => {
+    if(el.id==="depositTrx") el.placeholder="bKash Transaction ID";
+  });
+});
+</script>
+
+</body>
+</html>
